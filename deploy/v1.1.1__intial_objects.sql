@@ -1,43 +1,43 @@
-CREATE SCHEMA IF NOT EXISTS drai_cicd;
+-- CREATE SCHEMA IF NOT EXISTS drai_cicd;
 
-CREATE TABLE PRODUCT_MASTER (
-    PRODUCT_ID INT PRIMARY KEY,
-    PRODUCT_NAME VARCHAR(100),
-    CATEGORY VARCHAR(50),
-    UNIT_PRICE DECIMAL(10,2),
-    STOCK_QTY INT
-);
-INSERT INTO PRODUCT_MASTER (PRODUCT_ID, PRODUCT_NAME, CATEGORY, UNIT_PRICE, STOCK_QTY) VALUES
-(1, 'Laptop Pro 14', 'Electronics', 78000, 50),
-(2, 'Smartphone X5', 'Electronics', 32000, 120),
-(3, 'Bluetooth Headphones', 'Accessories', 2500, 200),
-(4, 'Gaming Keyboard', 'Accessories', 3500, 150),
-(5, 'Office Chair', 'Furniture', 7800, 80),
-(6, 'Wooden Desk', 'Furniture', 14500, 40),
-(7, 'USB-C Charger', 'Accessories', 1200, 300),
-(8, 'Smartwatch Z', 'Electronics', 15000, 90),
-(9, 'Portable Speaker', 'Accessories', 1800, 250),
-(10, 'LED Monitor 24"', 'Electronics', 12500, 60);
+-- CREATE TABLE PRODUCT_MASTER (
+--     PRODUCT_ID INT PRIMARY KEY,
+--     PRODUCT_NAME VARCHAR(100),
+--     CATEGORY VARCHAR(50),
+--     UNIT_PRICE DECIMAL(10,2),
+--     STOCK_QTY INT
+-- );
+-- INSERT INTO PRODUCT_MASTER (PRODUCT_ID, PRODUCT_NAME, CATEGORY, UNIT_PRICE, STOCK_QTY) VALUES
+-- (1, 'Laptop Pro 14', 'Electronics', 78000, 50),
+-- (2, 'Smartphone X5', 'Electronics', 32000, 120),
+-- (3, 'Bluetooth Headphones', 'Accessories', 2500, 200),
+-- (4, 'Gaming Keyboard', 'Accessories', 3500, 150),
+-- (5, 'Office Chair', 'Furniture', 7800, 80),
+-- (6, 'Wooden Desk', 'Furniture', 14500, 40),
+-- (7, 'USB-C Charger', 'Accessories', 1200, 300),
+-- (8, 'Smartwatch Z', 'Electronics', 15000, 90),
+-- (9, 'Portable Speaker', 'Accessories', 1800, 250),
+-- (10, 'LED Monitor 24"', 'Electronics', 12500, 60);
 
-CREATE TABLE SALES_DATA (
-    SALES_ID INT PRIMARY KEY,
-    PRODUCT_ID INT,
-    QUANTITY INT,
-    TOTAL_AMOUNT DECIMAL(10,2),
-    CUSTOMER_NAME VARCHAR(100),
-    ORDER_DATE DATE,
-    REGION VARCHAR(50),
-    FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCT_MASTER(PRODUCT_ID)
-);
+-- CREATE TABLE SALES_DATA (
+--     SALES_ID INT PRIMARY KEY,
+--     PRODUCT_ID INT,
+--     QUANTITY INT,
+--     TOTAL_AMOUNT DECIMAL(10,2),
+--     CUSTOMER_NAME VARCHAR(100),
+--     ORDER_DATE DATE,
+--     REGION VARCHAR(50),
+--     FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCT_MASTER(PRODUCT_ID)
+-- );
 
-INSERT INTO SALES_DATA (SALES_ID, PRODUCT_ID, QUANTITY, TOTAL_AMOUNT, CUSTOMER_NAME, ORDER_DATE, REGION) VALUES
-(101, 1, 2, 156000, 'Ravi Kumar', '2025-01-08', 'South'),
-(102, 3, 5, 12500, 'Anita Sharma', '2025-01-10', 'North'),
-(103, 2, 1, 32000, 'Suresh Reddy', '2025-01-12', 'South'),
-(104, 5, 1, 7800, 'Priya Singh', '2025-01-15', 'West'),
-(105, 8, 2, 30000, 'Kiran Patel', '2025-01-21', 'East'),
-(106, 7, 3, 3600, 'Mahesh Yadav', '2025-01-22', 'South'),
-(107, 9, 4, 7200, 'Deepa Nair', '2025-01-25', 'North'),
-(108, 10, 1, 12500, 'John Mathew', '2025-01-26', 'West'),
-(109, 4, 2, 7000, 'Nikita Rao', '2025-01-28', 'East'),
-(110, 6, 1, 14500, 'Vijay Kumar', '2025-01-30', 'South');
+-- INSERT INTO SALES_DATA (SALES_ID, PRODUCT_ID, QUANTITY, TOTAL_AMOUNT, CUSTOMER_NAME, ORDER_DATE, REGION) VALUES
+-- (101, 1, 2, 156000, 'Ravi Kumar', '2025-01-08', 'South'),
+-- (102, 3, 5, 12500, 'Anita Sharma', '2025-01-10', 'North'),
+-- (103, 2, 1, 32000, 'Suresh Reddy', '2025-01-12', 'South'),
+-- (104, 5, 1, 7800, 'Priya Singh', '2025-01-15', 'West'),
+-- (105, 8, 2, 30000, 'Kiran Patel', '2025-01-21', 'East'),
+-- (106, 7, 3, 3600, 'Mahesh Yadav', '2025-01-22', 'South'),
+-- (107, 9, 4, 7200, 'Deepa Nair', '2025-01-25', 'North'),
+-- (108, 10, 1, 12500, 'John Mathew', '2025-01-26', 'West'),
+-- (109, 4, 2, 7000, 'Nikita Rao', '2025-01-28', 'East'),
+-- (110, 6, 1, 14500, 'Vijay Kumar', '2025-01-30', 'South');
