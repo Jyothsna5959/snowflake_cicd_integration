@@ -1354,47 +1354,21 @@ $$;
 
 
 
-
--- use database drai_ingestion_database;
--- use schema drai_ing_schema;
-
--- select * from ingestion_audit_log;
--- drop table ingestion_audit_log;
-
-
-
 -- CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'sales_data_stg_schema.yaml');
-
--- SELECT * FROM SALES_DATA;
--- SELECT * FROM SALES_DATA_ERRORS;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.SALES_DATA;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.SALES_DATA_ERRORS;
-
-
 
 -- CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'product_data_stg_schema.yaml');
 
--- SELECT * FROM PRODUCT_DATA;
--- SELECT * FROM PRODUCT_DATA_ERRORS;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.PRODUCT_DATA;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.PRODUCT_DATA_ERRORS;
-
-
-
 -- CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'customer_details_stg_schema_json.yaml');    
-
--- SELECT * FROM customer_details;
--- SELECT * FROM customer_details_errors;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.customer_details;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.customer_details_errors;
-
 
 -- CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'product_details_stg_schema_parquet.yaml');
 
--- SELECT * FROM product_details;
--- SELECT * FROM product_details_errors;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.product_details;
--- DROP TABLE IF EXISTS DRAI_INGESTION_DATABASE.DRAI_ING_SCHEMA.product_details_errors;
+-- select * from product_details;
+
+-- select * from product_details_errors;
+
+-- select * from sales_data;
+
+
 
 
 
