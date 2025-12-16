@@ -1356,17 +1356,17 @@ $$;
 
 CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'sales_data_stg_schema.yaml');
 
-CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'product_data_stg_schema.yaml');
+-- CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'product_data_stg_schema.yaml');
 
-CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'customer_details_stg_schema_json.yaml');    
+-- CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'customer_details_stg_schema_json.yaml');    
 
-CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'product_details_stg_schema_parquet.yaml');
+-- CALL LOAD_GENERIC_DATA_PROCEDURE('DRAI_INTERNAL_CONFIG_STAGE', 'product_details_stg_schema_parquet.yaml');
 
-select * from product_details;
+-- select * from product_details;
 
-select * from product_details_errors;
+-- select * from product_details_errors;
 
-select * from sales_data;
+-- select * from sales_data;
 
 
 
