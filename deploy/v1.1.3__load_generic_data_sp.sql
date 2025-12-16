@@ -1355,8 +1355,8 @@ $$;
 
 
 
-use database drai_ingestion_database;
-use schema drai_ing_schema;
+-- use database drai_ingestion_database;
+-- use schema drai_ing_schema;
 
 -- select * from ingestion_audit_log;
 -- drop table ingestion_audit_log;
