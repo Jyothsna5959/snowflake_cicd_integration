@@ -6,18 +6,20 @@ metadata:
   description: "Load multiple CSV datasets from local system into Snowflake"
 
 datasets:
-  - name: "customer_data"
+  - name: "sales_data"
     source:
       type: "s3"
+      file_pattern: "sales_data.*\\.csv"  # Specific file pattern
+      bucket: "datalake-dev-dtrai-rawlayer-in-com-sy"
     target:
       type: "snowflake"
-      database: "DRAI_INGESTION_DATABASE"
-      schema: "STG_SCHEMA"
-      table: "CUSTOMER_DATA_PARQUET"
+      database: "CICD"
+      schema: "DRAI_CICD"
+      table: "SALES_DETAILS"
       stage:
-        name: "DRAI_S3_STG_INBOUND" 
-        path: "customer_data_parquet"
-        file_format: "DRAI_PARQUET_FORMAT"
+        name: "DRAI_S3_EXTERNAL_STAGE_INBOUND"
+        path: "sales_data/"
+        file_format: "DRAI_CSV_FORMAT"
         validate: true
       tbl_schema:
         SALE_ID: "NUMBER"
@@ -30,8 +32,8 @@ datasets:
           load_mode: "continue"   # abort | continue | truncate | recreate
           load_strategy: "truncate_and_load"       # options: truncate_and_load | drop_and_create | select_matched | default_missing
           validation_mode: false  # true → only validate, don’t load
-          stage_path: "@DRAI_S3_STG_INBOUND/customer_data_parquet"
-          file_format: "DRAI_PARQUET_FORMAT"
+          stage_path: "@DRAI_S3_EXTERNAL_STAGE_INBOUND/sales_data/"
+          file_format: "DRAI_CSV_FORMAT"
 
   
 # Root-level configs — apply globally
