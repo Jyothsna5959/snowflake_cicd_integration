@@ -1,0 +1,16 @@
+connection:
+  type: "snowflake"
+  account: "LLQKXCR-FU11136"
+  user: "JYOTHSNA"
+  role: "ACCOUNTADMIN"
+  warehouse: "COMPUTE_WH"
+  database: "DRAI_INGESTION_DATABASE"
+  schema: "STG_SCHEMA"
+  session_parameters:
+    TIMEZONE: "UTC"
+    AUTOCOMMIT: true
+  authentication:
+    method: "password"                     # changed from keypair
+    password: "${SNOWFLAKE_PASSWORD}"   #$env:SNOWFLAKE_PASSWORD = "YourStrongPassword"
+    private_key_path: "C:\\Users\\krish\\.ssh\\rsa_key.p8"
+    private_key_passphrase: "${SNOWFLAKE_KEY_PASSPHRASE}"   # uses env var, never 
