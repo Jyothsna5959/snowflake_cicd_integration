@@ -1,11 +1,11 @@
 connection:
   type: "snowflake"
-  account: "LLQKXCR-FU11136"
-  user: "JYOTHSNA"
+  account: "XUUJXTV-EE80968"
+  user: "MAHESH"
   role: "ACCOUNTADMIN"
   warehouse: "COMPUTE_WH"
-  database: "DRAI_INGESTION_DATABASE"
-  schema: "STG_SCHEMA"
+  database: "CICD"
+  schema: "DRAI_CICD"
   session_parameters:
     TIMEZONE: "UTC"
     AUTOCOMMIT: true
