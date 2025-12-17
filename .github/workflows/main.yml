@@ -31,7 +31,7 @@ jobs:
           echo "Step 1: Installing schemachange"
           pip install schemachange
           echo "Step 2: Running schemachange"
-          schemachange -f $GITHUB_WORKSPACE\
+          schemachange -f $GITHUB_WORKSPACE\src\com
             -a $SF_ACCOUNT \
             -u $SF_USERNAME \
             -r $SF_ROLE \
