@@ -1,0 +1,117 @@
+version: "1.2"
+ 
+metadata:
+  name: "csv_multi_sales_ingestion"
+  owner: "data-eng-team"
+  description: "Load multiple CSV datasets from local system into Snowflake"
+ 
+datasets:
+  - name: "customer_data"
+ 
+    source:
+      type: "parquet"
+      properties:
+        file_path: "src/com/dataready_ai/snf/resources/data/product_master.csv"
+        delimiter: ","
+        header: true
+        infer_schema: true
+       
+ 
+    target:
+      type: "snowflake"
+      database: "DRAI_INGESTION_DATABASE"
+      schema: "STG_SCHEMA"
+      table: "TITANIC_DATA"
+      # connection: "../connections/snowflake/dev/sales_snowflake_dev.yaml"
+ 
+      stage:
+        name: "DRAI_S3_STG_INBOUND"
+        path: "titanic_data"
+        file_format: "DRAI_PARQUET_FORMAT"
+        validate: true
+ 
+      tbl_schema:
+        ORDER_ID: "NUMBER"
+        CUSTOMER_NAME: "VARCHAR"
+        CATEGORY: "VARCHAR"
+        AMOUNT: "FLOAT"
+        # LOAD_TS: "TIMESTAMP"
+ 
+      ingestion:
+        method: "copy_into"
+        copy_options:
+          load_mode: "continue"              # abort | continue | truncate | recreate
+          load_strategy: "truncate_and_load" # truncate_and_load | drop_and_create | select_matched | default_missing
+          validation_mode: false             # true = validate only, do not load
+          stage_path: "@DRAI_S3_STG_INBOUND/titanic_data"
+          file_format: "DRAI_PARQUET_FORMAT"
+ 
+  # - name: "sales_data"
+ 
+  #   source:
+  #     type: "csv"
+  #     properties:
+  #       file_path: "src/com/dataready_ta/sales_ai/snf/resources/sales_data.csv"
+  #       delimiter: ","
+  #       header: true
+  #       infer_schema: true
+       
+ 
+  #   target:
+  #     type: "snowflake"
+  #     database: "DRAI_INGESTION_DATABASE"
+  #     schema: "STG_SCHEMA"
+  #     table: "SALES_DATA"
+  #     # connection: "../connections/snowflake/dev/sales_snowflake_dev.yaml"
+ 
+  #     stage:
+  #       name: "DRAI_S3_STG_INBOUND"
+  #       path: "sales_data"
+  #       file_format: "DRAI_CSV_FORMAT"
+  #       validate: true
+ 
+  #     tbl_schema:
+  #       ORDER_ID: "NUMBER"
+  #       CUSTOMER_NAME: "VARCHAR"
+  #       AMOUNT: "FLOAT"
+  #       LOAD_TS: "TIMESTAMP"
+ 
+  #     ingestion:
+  #       method: "copy_into"
+  #       copy_options:
+  #         load_mode: "continue"              # abort | continue | truncate | recreate
+  #         load_strategy: "drop_and_create" # truncate_and_load | drop_and_create | select_matched | default_missing
+  #         validation_mode: false             # true = validate only, do not load
+  #         stage_path: "@DRAI_S3_STG_INBOUND/product_data"
+  #         file_format: "DRAI_CSV_FORMAT"
+ 
+ 
+# Root-level Audit Configuration
+ 
+audit:
+  enabled: true
+  table: "INGESTION_AUDIT_LOG"
+  schema: "STG_SCHEMA"
+ 
+ 
+# Error Logging Configuration (COPY INTO Failures)
+ 
+error_handling:
+  enable_error_table: true
+  error_table: "ERROR_LOG"
+  error_schema: "ERROR_SCHEMA"
+ 
+ 
+# Logging Configuration
+ 
+logging:
+  level: "INFO"
+  log_path: "src/com/dataready_ai/snf/resources/logs/"
+  file_pattern: "{source_type}_{dataset_name}.log"
+ 
+ 
+# Connection Identifiers
+ 
+connections:
+  source: "sales_parquet"
+  target: "sales_snowflake"
